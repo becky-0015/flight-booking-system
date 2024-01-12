@@ -1,0 +1,31 @@
+type FlightBooking = record {
+  id : text;
+  arrivalAirport : text;
+  arrivalTime : nat64;
+  departureTime : nat64;
+  createdAt : nat64;
+  updatedAt : opt nat64;
+  airline : text;
+  departureAirport : text;
+};
+type FlightBookingPayload = record {
+  arrivalAirport : text;
+  arrivalTime : nat64;
+  departureTime : nat64;
+  airline : text;
+  departureAirport : text;
+};
+type _AzleResult = variant { Ok : FlightBooking; Err : text };
+type _AzleResult_1 = variant { Ok : float64; Err : text };
+type _AzleResult_2 = variant { Ok : vec FlightBooking; Err : text };
+service : () -> {
+  addFlightBooking : (FlightBookingPayload) -> (_AzleResult);
+  countFlightBookings : () -> (_AzleResult_1) query;
+  deleteFlightBooking : (text) -> (_AzleResult);
+  getFlightBooking : (text) -> (_AzleResult) query;
+  getFlightBookings : () -> (_AzleResult_2) query;
+  getFlightBookingsByTimeRange : (nat64, nat64) -> (_AzleResult_2) query;
+  getFlightBookingsPaginated : (float64, float64) -> (_AzleResult_2) query;
+  searchFlightBookings : (text) -> (_AzleResult_2) query;
+  updateFlightBooking : (text, FlightBookingPayload) -> (_AzleResult);
+}
