@@ -110,16 +110,14 @@ A record type representing the payload used for creating or updating a flight bo
     npm install
     ```
 
-2. **Run on the Internet Computer**
+2. Start the IC local development environment
 
- ```bash
-    dfx start
+    ```bash
+    dfx start --background --clean
     ```
-    
+
+3. Deploy the canisters to the local development environment
+
     ```bash
     dfx deploy
     ```
-
-3. **Accessing the Service**
-
-    After a successful deployment, you will receive URLs to interact with your canisters. Use these URLs to access the flight booking service.
